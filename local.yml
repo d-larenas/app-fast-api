@@ -1,0 +1,17 @@
+version: '3'
+
+services:
+  app_api:
+    build:
+      context: .
+      dockerfile: compose/local/app/Dockerfile
+    image: image_local_app
+    container_name: app_api
+    volumes:
+      - .:/app:z
+    env_file:
+      - .envs/.local/app/.app
+    ports:
+      - "8000:8000"
+    command: /start
+
